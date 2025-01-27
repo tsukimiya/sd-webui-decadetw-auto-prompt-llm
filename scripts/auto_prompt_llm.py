@@ -330,7 +330,7 @@ class AutoLLM(scripts.Script):
                 result_mix = completion_json['choices'][0]['message']['content']
             result_mix = result_mix.replace('\n', '')
             log.warning("[Auto-LLM][][]Server Ans=> " + result_mix)
-            if llm_api_model_name.startswith('deepseek-r1'):
+            if 'deepseek-r1'.lower() in llm_api_model_name.lower():
                 result_mix = re.sub(r'<think>.*?</think>', '', result_mix, flags=re.DOTALL)
 
         except Exception as e:
